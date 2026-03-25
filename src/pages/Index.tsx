@@ -3,7 +3,7 @@ import Icon from "@/components/ui/icon";
 
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/bac66344-3379-445c-9eff-5943591085b9/files/35f7b6dd-2902-4179-9dde-0dba7b8c7aa7.jpg";
 
-type Section = "home" | "exercises" | "games" | "tasks" | "schedule" | "reports" | "gallery" | "videos";
+type Section = "home" | "exercises" | "games" | "schedule" | "reports" | "gallery" | "videos";
 type Direction = "articulation" | "speech" | "motor" | "phonemic" | "school";
 
 const DIRECTIONS: { id: Direction; label: string; emoji: string; color: string; bg: string; border: string; desc: string }[] = [
@@ -157,19 +157,11 @@ const NAV_ITEMS = [
   { id: "exercises" as Section, label: "Упражнение",    emoji: "👄", color: "bg-orange-400" },
   { id: "games"     as Section, label: "Оонньуулар",    emoji: "🎮", color: "bg-yellow-400" },
   { id: "videos"    as Section, label: "Видео",         emoji: "📹", color: "bg-red-400" },
-  { id: "tasks"     as Section, label: "Дааннылар",     emoji: "📝", color: "bg-green-400" },
   { id: "schedule"  as Section, label: "Расписание",    emoji: "📅", color: "bg-blue-400" },
   { id: "reports"   as Section, label: "Отчуоттар",     emoji: "📊", color: "bg-purple-400" },
   { id: "gallery"   as Section, label: "Галерея",       emoji: "🖼️", color: "bg-rose-400" },
 ];
 
-const TASKS = [
-  { student: "Маша К.",  task: "[Р] дорҕооно хатаа — карточкалар 1–5",      due: "Кулун тутар 25", done: true,  emoji: "👧" },
-  { student: "Вася П.",  task: "[Ш] дорҕоонноох хоһооннор — 2 куплет үөрэт", due: "Кулун тутар 26", done: false, emoji: "👦" },
-  { student: "Аня С.",   task: "Тыын гимнастиката — 5 мүнүүтэ",             due: "Кулун тутар 25", done: true,  emoji: "👧" },
-  { student: "Дима В.",  task: "[Ц] дорҕоонноох тиэтэйдэр",                 due: "Кулун тутар 27", done: false, emoji: "👦" },
-  { student: "Оля Т.",   task: "Пластилинтан буукубалары лэп",               due: "Кулун тутар 28", done: false, emoji: "👧" },
-];
 
 const SCHEDULE = [
   { time: "09:00", name: "Маша К.",  theme: "[Р] автоматизацията",         color: "border-l-pink-400 bg-pink-50" },
