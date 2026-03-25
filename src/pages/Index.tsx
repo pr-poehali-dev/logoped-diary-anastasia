@@ -7,81 +7,81 @@ type Section = "home" | "exercises" | "games" | "tasks" | "schedule" | "reports"
 type Direction = "articulation" | "speech" | "motor" | "phonemic" | "school";
 
 const DIRECTIONS: { id: Direction; label: string; emoji: string; color: string; bg: string; border: string; desc: string }[] = [
-  { id: "articulation", label: "Артикуляция", emoji: "👄", color: "text-orange-700", bg: "bg-orange-100", border: "border-orange-300", desc: "Гимнастика языка и губ" },
-  { id: "speech",       label: "Запуск речи",  emoji: "🗣️", color: "text-pink-700",   bg: "bg-pink-100",   border: "border-pink-300",   desc: "Стимуляция первых слов" },
-  { id: "motor",        label: "Мелкая моторика", emoji: "🖐️", color: "text-green-700", bg: "bg-green-100", border: "border-green-300", desc: "Развитие ручек и пальчиков" },
-  { id: "phonemic",     label: "Фонематич. слух", emoji: "👂", color: "text-blue-700",  bg: "bg-blue-100",  border: "border-blue-300",  desc: "Различение звуков речи" },
-  { id: "school",       label: "Подготовка к школе", emoji: "🎒", color: "text-purple-700", bg: "bg-purple-100", border: "border-purple-300", desc: "Буквы, слоги, анализ слов" },
+  { id: "articulation", label: "Артикуляция", emoji: "👄", color: "text-orange-700", bg: "bg-orange-100", border: "border-orange-300", desc: "Тыл уонна уостар гимнастиката" },
+  { id: "speech",       label: "Саҥаны саҕалааһын", emoji: "🗣️", color: "text-pink-700", bg: "bg-pink-100", border: "border-pink-300", desc: "Бастакы тылларга стимул" },
+  { id: "motor",        label: "Тарбах моторика", emoji: "🖐️", color: "text-green-700", bg: "bg-green-100", border: "border-green-300", desc: "Илиини уонна тарбахтары сайыннарыы" },
+  { id: "phonemic",     label: "Фонем. истии", emoji: "👂", color: "text-blue-700", bg: "bg-blue-100", border: "border-blue-300", desc: "Саҥа дорҕооннорун арааһыр" },
+  { id: "school",       label: "Оскуолаҕа бэлэм", emoji: "🎒", color: "text-purple-700", bg: "bg-purple-100", border: "border-purple-300", desc: "Буукубалар, слогтар, анаалыс" },
 ];
 
 const EXERCISES_BY_DIR: Record<Direction, { title: string; desc: string; emoji: string; level: string }[]> = {
   articulation: [
-    { title: "Лошадка",    desc: "Щёлканье языком — укрепляем подъязычную связку", emoji: "🐴", level: "Лёгкое" },
-    { title: "Грибок",     desc: "Присасываем язык к нёбу и держим 5–10 секунд",    emoji: "🍄", level: "Среднее" },
-    { title: "Варенье",    desc: "Облизываем верхнюю губу языком медленно",          emoji: "🍓", level: "Лёгкое" },
-    { title: "Качели",     desc: "Поочерёдно поднимаем и опускаем язык",            emoji: "🎡", level: "Среднее" },
-    { title: "Часики",     desc: "Двигаем языком влево-вправо как маятник",          emoji: "⏰", level: "Лёгкое" },
-    { title: "Парус",      desc: "Напрягаем язык и поднимаем к нёбу",               emoji: "⛵", level: "Сложное" },
+    { title: "Сылгычаан",      desc: "Тылынан чаҕылхайдык баттааһын — тыл бинтин бөҕөргөтөбүт", emoji: "🐴", level: "Судургу" },
+    { title: "Быыка",          desc: "Тылы сулуска тэбэр уонна 5–10 сокуунду тутабыт",           emoji: "🍄", level: "Орто" },
+    { title: "Хайах",          desc: "Тылынан үөһээ уосу аргыстыы сылыйабыт",                    emoji: "🍓", level: "Судургу" },
+    { title: "Силис",          desc: "Тылы хас биирдии үөһэ уонна аллара таһаарабыт",            emoji: "🎡", level: "Орто" },
+    { title: "Чаастык",        desc: "Тылы маятник курдук хаҥас-уҥас хамсатабыт",                emoji: "⏰", level: "Судургу" },
+    { title: "Парус",          desc: "Тылы кытаанахтатан сулуска тэбэбит",                       emoji: "⛵", level: "Уустук" },
   ],
   speech: [
-    { title: "Звукоподражание", desc: "Повторяем голоса животных: мяу, гав, му, ко-ко", emoji: "🐱", level: "Лёгкое" },
-    { title: "Слоговые цепочки", desc: "Ба-ба-ба, ма-ма-ма, па-па-па ритмично",         emoji: "🔗", level: "Лёгкое" },
-    { title: "Договаривай",     desc: "Начинаем фразу — ребёнок договаривает конец",     emoji: "💬", level: "Среднее" },
-    { title: "Комментирование", desc: "Называем всё, что делает ребёнок в игре",         emoji: "📢", level: "Лёгкое" },
-    { title: "Выбор из двух",   desc: "«Дай мне кошку или собаку?» — стимул к речи",    emoji: "🤔", level: "Среднее" },
-    { title: "Жестовое общение",desc: "Учим базовые жесты: дай, на, ещё, нет, да",       emoji: "🤲", level: "Лёгкое" },
+    { title: "Дорҕоон таптаатыы", desc: "Кыыл куолаһын хатаабыт: мяу, гав, мөө, кө-кө",        emoji: "🐱", level: "Судургу" },
+    { title: "Слог тиэрбэлэрэ",   desc: "Ба-ба-ба, ма-ма-ма, па-па-па ритмнастыы",              emoji: "🔗", level: "Судургу" },
+    { title: "Бүтэр этии",        desc: "Этиини саҕалыыбыт — оҕо бүтэрэр",                       emoji: "💬", level: "Орто" },
+    { title: "Ааттааһын",         desc: "Оҕо оонньуурун барытын ааттыыбыт",                      emoji: "📢", level: "Судургу" },
+    { title: "Иккиттэн биир",     desc: "«Куоску биэр эбэтэр ыты?» — саҥаны стимуллааһын",      emoji: "🤔", level: "Орто" },
+    { title: "Кистэлэҥ саҥа",    desc: "Бастакы кистэлэҥнэри үөрэтэбит: биэр, ал, ааспыт, суох, сөп", emoji: "🤲", level: "Судургу" },
   ],
   motor: [
-    { title: "Пальчиковая гимнастика", desc: "«Сорока-ворона», «Этот пальчик» и другие", emoji: "🖐️", level: "Лёгкое" },
-    { title: "Шнуровка",    desc: "Продеваем шнурок в отверстия карточки",            emoji: "🪢", level: "Среднее" },
-    { title: "Прищепки",    desc: "Цепляем прищепки по контуру — развиваем хват",    emoji: "🔧", level: "Среднее" },
-    { title: "Лепка",       desc: "Мнём, раскатываем, щиплём пластилин",             emoji: "🫙", level: "Лёгкое" },
-    { title: "Пересыпание", desc: "Ложкой перекладываем крупу из чашки в чашку",    emoji: "🫘", level: "Лёгкое" },
-    { title: "Массажный мячик", desc: "Катаем мячик-ёжик между ладонями",            emoji: "🔴", level: "Лёгкое" },
+    { title: "Тарбах гимнастиката", desc: "«Суорун-хаарчах», «Бу тарбах» уо.д.а.",              emoji: "🖐️", level: "Судургу" },
+    { title: "Бараан тардыы",       desc: "Карточкаҕа тэлиэккэлэргэ баараны угабыт",            emoji: "🪢", level: "Орто" },
+    { title: "Прищепкалар",         desc: "Конткуурунан прищепкалары тутабыт — хапсыыны сайыннарабыт", emoji: "🔧", level: "Орто" },
+    { title: "Лэпилиэнньэ",        desc: "Пластилиннэ баттыыбыт, сааппыт, тимиирэбит",          emoji: "🫙", level: "Судургу" },
+    { title: "Биириннэрии",         desc: "Ложканан крупаны чааскыттан чааскыга кэбиспит",       emoji: "🫘", level: "Судургу" },
+    { title: "Массаж мааччыга",     desc: "Ёж мааччыгын илиилэр ортотугар катарабыт",            emoji: "🔴", level: "Судургу" },
   ],
   phonemic: [
-    { title: "Хлопни на звук", desc: "Хлопай, когда услышишь звук [А] в словах",   emoji: "👏", level: "Лёгкое" },
-    { title: "Звуковое лото",  desc: "Находим картинки с нужным первым звуком",     emoji: "🎲", level: "Среднее" },
-    { title: "Тихо-громко",    desc: "Различаем тихое и громкое произнесение слов", emoji: "🔊", level: "Лёгкое" },
-    { title: "Рифмы",          desc: "Подбираем рифмующиеся слова: дом-ком-лом",   emoji: "🎵", level: "Среднее" },
-    { title: "Похожие слова",  desc: "Различаем: коса-коза, мышка-мишка, рак-лак", emoji: "👂", level: "Сложное" },
-    { title: "Цепочка звуков", desc: "Воспроизводим ряд звуков в правильном порядке", emoji: "🔗", level: "Сложное" },
+    { title: "Дорҕоонго таптаа",  desc: "Тылларга [А] дорҕооно иһиллэр кэмигэр таптаа",        emoji: "👏", level: "Судургу" },
+    { title: "Дорҕоон лото",      desc: "Бастакы дорҕооннорунан картиналары булабыт",            emoji: "🎲", level: "Орто" },
+    { title: "Сыыппа-күүстэ",    desc: "Тылы сыыппатык уонна күүстэтик саҥарыыны арааһырбыт",   emoji: "🔊", level: "Судургу" },
+    { title: "Рифмалар",          desc: "Рифмалыыр тыллары булабыт: дьиэ-тиэ-биэ",             emoji: "🎵", level: "Орто" },
+    { title: "Маарынныыр тыллар", desc: "Арааһырабыт: маас-баас, тыа-суол, оҕо-уол",           emoji: "👂", level: "Уустук" },
+    { title: "Дорҕоон тиэрбэтэ", desc: "Дорҕооннор тиэрбэтин сөпкө хатаабыт",                 emoji: "🔗", level: "Уустук" },
   ],
   school: [
-    { title: "Буквы из пластилина", desc: "Лепим буквы, называем и обводим пальцем",   emoji: "🅰️", level: "Лёгкое" },
-    { title: "Слоговое деление",    desc: "Хлопаем на каждый слог в слове: ма-ши-на", emoji: "✋", level: "Среднее" },
-    { title: "Первый звук",         desc: "«Какой первый звук в слове КОТ?» — [К]!",  emoji: "🔤", level: "Среднее" },
-    { title: "Штриховка",           desc: "Штрихуем буквы и фигуры не выходя за края", emoji: "✏️", level: "Лёгкое" },
-    { title: "Слово из звуков",     desc: "Составляем слово из отдельных звуков",      emoji: "🧩", level: "Сложное" },
-    { title: "Чтение слогов",       desc: "Читаем открытые слоги: МА, ПА, ЛА, СА",   emoji: "📖", level: "Сложное" },
+    { title: "Пластилин буукубата", desc: "Буукубалары лэпиллиибит, ааттыыбыт, тарбахпытынан обводим", emoji: "🅰️", level: "Судургу" },
+    { title: "Слог арааһыр",        desc: "Тылга хас биирдии слогка таптыыбыт: ма-ши-на",       emoji: "✋", level: "Орто" },
+    { title: "Бастакы дорҕоон",     desc: "«КОТ тылга бастакы дорҕоон ханнык?» — [К]!",        emoji: "🔤", level: "Орто" },
+    { title: "Штриховка",           desc: "Буукубалары уонна фигуралары тас кирбиилэрэ тахсыбакка штрихуйбут", emoji: "✏️", level: "Судургу" },
+    { title: "Дорҕоонтон тыл",      desc: "Арааһы дорҕооннортон тылы оҥоробут",                 emoji: "🧩", level: "Уустук" },
+    { title: "Слогу аахпыт",        desc: "Аһаҕас слогтары аахпыт: МА, ПА, ЛА, СА",            emoji: "📖", level: "Уустук" },
   ],
 };
 
 const GAMES_BY_DIR: Record<Direction, { title: string; desc: string; emoji: string; age: string; color: string }[]> = {
   articulation: [
-    { title: "Зеркало логопеда", desc: "Повторяй позы языка глядя в зеркало", emoji: "🪞", age: "3–6 лет", color: "from-orange-300 to-yellow-300" },
-    { title: "Артикуляшки",      desc: "Карточки с картинками упражнений",    emoji: "🃏", age: "4–6 лет", color: "from-pink-300 to-orange-300" },
-    { title: "Надуй пузырь",     desc: "Дуй в трубочку и надувай щёки",       emoji: "🫧", age: "3–5 лет", color: "from-yellow-300 to-green-300" },
+    { title: "Логопед кэриэһитэ",  desc: "Кэриэскэ көрөн тылы туругун хатаа",           emoji: "🪞", age: "3–6 сааска", color: "from-orange-300 to-yellow-300" },
+    { title: "Артикуляашкалар",    desc: "Упражнение картиналардаах карточкалар",          emoji: "🃏", age: "4–6 сааска", color: "from-pink-300 to-orange-300" },
+    { title: "Пуз дуй",            desc: "Трубочкаҕа уй — кытааны тэтимирэт",             emoji: "🫧", age: "3–5 сааска", color: "from-yellow-300 to-green-300" },
   ],
   speech: [
-    { title: "Весёлый поезд",    desc: "Произноси звуки как гудок паровоза",  emoji: "🚂", age: "2–4 года", color: "from-green-300 to-teal-300" },
-    { title: "Кто как говорит",  desc: "Угадай животное по звукоподражанию",  emoji: "🐾", age: "2–4 года", color: "from-teal-300 to-blue-300" },
-    { title: "Договори словечко",desc: "Начинаю фразу из сказки — ты заканчивай", emoji: "📕", age: "3–5 лет", color: "from-pink-300 to-rose-300" },
+    { title: "Үөрүүлээх поезд",   desc: "Паровоз гудогун курдук дорҕооннору саҥаар",     emoji: "🚂", age: "2–4 сааска", color: "from-green-300 to-teal-300" },
+    { title: "Ким туох диир",      desc: "Дорҕоон таптаатыынан кыылы тааныр",             emoji: "🐾", age: "2–4 сааска", color: "from-teal-300 to-blue-300" },
+    { title: "Тылы бүтэр",        desc: "Остуоруйаттан этиини саҕалыыбын — эн бүтэр",    emoji: "📕", age: "3–5 сааска", color: "from-pink-300 to-rose-300" },
   ],
   motor: [
-    { title: "Театр на пальчиках", desc: "Разыгрываем сказку пальчиками руки",  emoji: "🎭", age: "3–6 лет", color: "from-purple-300 to-pink-300" },
-    { title: "Мозаика",            desc: "Собираем узор из мелких деталей",      emoji: "🔮", age: "4–6 лет", color: "from-blue-300 to-purple-300" },
-    { title: "Крышки-сортировка",  desc: "Сортируем крышки по цвету и размеру", emoji: "🔵", age: "3–5 лет", color: "from-cyan-300 to-blue-300" },
+    { title: "Тарбах театра",      desc: "Тарбахтарынан остуоруйаны оонньотобут",          emoji: "🎭", age: "3–6 сааска", color: "from-purple-300 to-pink-300" },
+    { title: "Мозаика",            desc: "Кыра чааһынан суруйу хомуйабыт",                emoji: "🔮", age: "4–6 сааска", color: "from-blue-300 to-purple-300" },
+    { title: "Хаапкалар",          desc: "Хаапкалары чэрчиттэринэн уонна кэмэлэринэн хомуйабыт", emoji: "🔵", age: "3–5 сааска", color: "from-cyan-300 to-blue-300" },
   ],
   phonemic: [
-    { title: "Звуковое эхо",  desc: "Повторяй цепочку звуков вслед за мной",  emoji: "🏔️", age: "4–6 лет", color: "from-blue-300 to-purple-300" },
-    { title: "Угадай слово",  desc: "По первому звуку угадай слово на картинке", emoji: "🔍", age: "5–6 лет", color: "from-indigo-300 to-blue-300" },
-    { title: "Поймай звук",   desc: "Хлопни в ладоши, услышав нужный звук",   emoji: "👏", age: "4–6 лет", color: "from-sky-300 to-cyan-300" },
+    { title: "Дорҕоон эхото",      desc: "Миэннэн кэнники дорҕоон тиэрбэтин хатаа",       emoji: "🏔️", age: "4–6 сааска", color: "from-blue-300 to-purple-300" },
+    { title: "Тылы тааны",         desc: "Бастакы дорҕооннонон картинаттан тылы тааны",   emoji: "🔍", age: "5–6 сааска", color: "from-indigo-300 to-blue-300" },
+    { title: "Дорҕооно тут",       desc: "Наада дорҕоону иһиттэххинэ илиитинэн таптаа",   emoji: "👏", age: "4–6 сааска", color: "from-sky-300 to-cyan-300" },
   ],
   school: [
-    { title: "Азбука в картинках", desc: "Каждой букве — своя смешная картинка", emoji: "📚", age: "5–7 лет", color: "from-purple-300 to-pink-300" },
-    { title: "Слоговые домики",    desc: "Раскладываем картинки по домикам-слогам", emoji: "🏠", age: "6–7 лет", color: "from-rose-300 to-orange-300" },
-    { title: "Буквенное лото",     desc: "Закрываем буквы фишками — называем",    emoji: "🎯", age: "6–7 лет", color: "from-green-300 to-teal-300" },
+    { title: "Картиналардаах азбука", desc: "Хас биирдии буукубаҕа — бэйэтин күлүмүрдэстик картинатэ", emoji: "📚", age: "5–7 сааска", color: "from-purple-300 to-pink-300" },
+    { title: "Слог дьиэлэрэ",        desc: "Картиналары слог дьиэлэригэр уларыппыт",               emoji: "🏠", age: "6–7 сааска", color: "from-rose-300 to-orange-300" },
+    { title: "Буукуба лото",          desc: "Буукубалары фишканан бүкпүт — ааттыыбыт",              emoji: "🎯", age: "6–7 сааска", color: "from-green-300 to-teal-300" },
   ],
 };
 
@@ -89,20 +89,20 @@ type VideoLesson = { title: string; subtitle: string; dir: Direction; duration: 
 
 const VIDEO_LESSONS: VideoLesson[] = [
   {
-    title: "Артикуляционная гимнастика",
-    subtitle: "5 базовых упражнений для малышей",
+    title: "Артикуляция гимнастиката",
+    subtitle: "Кыра оҕолорго 5 бастакы упражнение",
     dir: "articulation" as Direction,
-    duration: "7 мин",
+    duration: "7 мүн",
     emoji: "👄",
     qr: "https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://youtube.com/watch?v=articulation_demo&color=f97316&bgcolor=fff7ed",
     color: "from-orange-400 to-yellow-400",
     cardBg: "bg-orange-50 border-orange-200",
   },
   {
-    title: "Запуск речи у малышей",
-    subtitle: "Игры и приёмы для неговорящих детей",
+    title: "Саҥаны саҕалааһын",
+    subtitle: "Саҥарбат оҕолорго оонньуулар уонна ньымалар",
     dir: "speech" as Direction,
-    duration: "12 мин",
+    duration: "12 мүн",
     emoji: "🗣️",
     qr: "https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://rutube.ru/video/private/94ea3a79ac07baefd225dcfea2d4109c/?p=5Dwm0s09OSSy8dy4ONudnQ&color=ec4899&bgcolor=fdf2f8",
     url: "https://rutube.ru/video/private/94ea3a79ac07baefd225dcfea2d4109c/?p=5Dwm0s09OSSy8dy4ONudnQ",
@@ -110,20 +110,20 @@ const VIDEO_LESSONS: VideoLesson[] = [
     cardBg: "bg-pink-50 border-pink-200",
   },
   {
-    title: "Мелкая моторика дома",
-    subtitle: "Пальчиковые игры без специальных пособий",
+    title: "Дьиэгэ тарбах моторика",
+    subtitle: "Хос пособиета суох тарбах оонньуулара",
     dir: "motor" as Direction,
-    duration: "9 мин",
+    duration: "9 мүн",
     emoji: "🖐️",
     qr: "https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://youtube.com/watch?v=fine_motor&color=22c55e&bgcolor=f0fdf4",
     color: "from-green-400 to-teal-400",
     cardBg: "bg-green-50 border-green-200",
   },
   {
-    title: "Фонематический слух",
-    subtitle: "Учим различать похожие звуки: играем!",
+    title: "Фонематическай истии",
+    subtitle: "Маарынныыр дорҕооннору арааһырар оонньуу!",
     dir: "phonemic" as Direction,
-    duration: "8 мин",
+    duration: "8 мүн",
     emoji: "👂",
     qr: "https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://rutube.ru/video/private/bc9ff959af24172f8f212a057fdaea9c/?p=C2FYU4zHYCRX96GE5MspsA&color=3b82f6&bgcolor=eff6ff",
     url: "https://rutube.ru/video/private/bc9ff959af24172f8f212a057fdaea9c/?p=C2FYU4zHYCRX96GE5MspsA",
@@ -131,20 +131,20 @@ const VIDEO_LESSONS: VideoLesson[] = [
     cardBg: "bg-blue-50 border-blue-200",
   },
   {
-    title: "Подготовка к школе",
-    subtitle: "Звуковой анализ слова, чтение слогов",
+    title: "Оскуолаҕа бэлэмнэниэ",
+    subtitle: "Тылы дорҕоон анаалыһа, слогтары аахпыт",
     dir: "school" as Direction,
-    duration: "15 мин",
+    duration: "15 мүн",
     emoji: "🎒",
     qr: "https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://youtube.com/watch?v=school_prep&color=a855f7&bgcolor=faf5ff",
     color: "from-purple-400 to-violet-400",
     cardBg: "bg-purple-50 border-purple-200",
   },
   {
-    title: "Полное занятие — Звук [Р]",
-    subtitle: "Постановка и автоматизация сложного звука",
+    title: "Толору занятие — [Р] дорҕоон",
+    subtitle: "Уустук дорҕооно туруорар уонна автоматизациялааһын",
     dir: "articulation" as Direction,
-    duration: "20 мин",
+    duration: "20 мүн",
     emoji: "🦁",
     qr: "https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://youtube.com/watch?v=sound_r_lesson&color=f97316&bgcolor=fff7ed",
     color: "from-red-400 to-orange-400",
@@ -153,46 +153,46 @@ const VIDEO_LESSONS: VideoLesson[] = [
 ];
 
 const NAV_ITEMS = [
-  { id: "home"      as Section, label: "Главная",    emoji: "🏠", color: "bg-pink-400" },
-  { id: "exercises" as Section, label: "Упражнения", emoji: "👄", color: "bg-orange-400" },
-  { id: "games"     as Section, label: "Игры",       emoji: "🎮", color: "bg-yellow-400" },
-  { id: "videos"    as Section, label: "Видео",      emoji: "📹", color: "bg-red-400" },
-  { id: "tasks"     as Section, label: "Задания",    emoji: "📝", color: "bg-green-400" },
-  { id: "schedule"  as Section, label: "Расписание", emoji: "📅", color: "bg-blue-400" },
-  { id: "reports"   as Section, label: "Отчёты",     emoji: "📊", color: "bg-purple-400" },
-  { id: "gallery"   as Section, label: "Галерея",    emoji: "🖼️", color: "bg-rose-400" },
+  { id: "home"      as Section, label: "Саҕалааһын",    emoji: "🏠", color: "bg-pink-400" },
+  { id: "exercises" as Section, label: "Упражнение",    emoji: "👄", color: "bg-orange-400" },
+  { id: "games"     as Section, label: "Оонньуулар",    emoji: "🎮", color: "bg-yellow-400" },
+  { id: "videos"    as Section, label: "Видео",         emoji: "📹", color: "bg-red-400" },
+  { id: "tasks"     as Section, label: "Дааннылар",     emoji: "📝", color: "bg-green-400" },
+  { id: "schedule"  as Section, label: "Расписание",    emoji: "📅", color: "bg-blue-400" },
+  { id: "reports"   as Section, label: "Отчуоттар",     emoji: "📊", color: "bg-purple-400" },
+  { id: "gallery"   as Section, label: "Галерея",       emoji: "🖼️", color: "bg-rose-400" },
 ];
 
 const TASKS = [
-  { student: "Маша К.",  task: "Повторить звук [Р] — карточки 1–5",   due: "25 марта", done: true,  emoji: "👧" },
-  { student: "Вася П.",  task: "Стихи на звук [Ш] — выучить 2 строфы", due: "26 марта", done: false, emoji: "👦" },
-  { student: "Аня С.",   task: "Дыхательная гимнастика — 5 минут",     due: "25 марта", done: true,  emoji: "👧" },
-  { student: "Дима В.",  task: "Скороговорки на звук [Ц]",             due: "27 марта", done: false, emoji: "👦" },
-  { student: "Оля Т.",   task: "Лепка букв из пластилина",             due: "28 марта", done: false, emoji: "👧" },
+  { student: "Маша К.",  task: "[Р] дорҕооно хатаа — карточкалар 1–5",      due: "Кулун тутар 25", done: true,  emoji: "👧" },
+  { student: "Вася П.",  task: "[Ш] дорҕоонноох хоһооннор — 2 куплет үөрэт", due: "Кулун тутар 26", done: false, emoji: "👦" },
+  { student: "Аня С.",   task: "Тыын гимнастиката — 5 мүнүүтэ",             due: "Кулун тутар 25", done: true,  emoji: "👧" },
+  { student: "Дима В.",  task: "[Ц] дорҕоонноох тиэтэйдэр",                 due: "Кулун тутар 27", done: false, emoji: "👦" },
+  { student: "Оля Т.",   task: "Пластилинтан буукубалары лэп",               due: "Кулун тутар 28", done: false, emoji: "👧" },
 ];
 
 const SCHEDULE = [
-  { time: "09:00", name: "Маша К.",  theme: "Автоматизация [Р]",      color: "border-l-pink-400 bg-pink-50" },
-  { time: "09:30", name: "Вася П.",  theme: "Постановка [Ш]",         color: "border-l-blue-400 bg-blue-50" },
-  { time: "10:00", name: "Аня С.",   theme: "Дыхательная гимнастика", color: "border-l-green-400 bg-green-50" },
-  { time: "10:30", name: "Дима В.",  theme: "Дифференциация [С]-[З]", color: "border-l-yellow-400 bg-yellow-50" },
-  { time: "11:00", name: "Оля Т.",   theme: "Развитие фонематики",    color: "border-l-purple-400 bg-purple-50" },
-  { time: "11:30", name: "Коля Н.",  theme: "Звуко-буквенный анализ", color: "border-l-orange-400 bg-orange-50" },
+  { time: "09:00", name: "Маша К.",  theme: "[Р] автоматизацията",         color: "border-l-pink-400 bg-pink-50" },
+  { time: "09:30", name: "Вася П.",  theme: "[Ш] дорҕооно туруорар",       color: "border-l-blue-400 bg-blue-50" },
+  { time: "10:00", name: "Аня С.",   theme: "Тыын гимнастиката",           color: "border-l-green-400 bg-green-50" },
+  { time: "10:30", name: "Дима В.",  theme: "[С]-[З] дифференциациялааһын", color: "border-l-yellow-400 bg-yellow-50" },
+  { time: "11:00", name: "Оля Т.",   theme: "Фонематиканы сайыннарыы",     color: "border-l-purple-400 bg-purple-50" },
+  { time: "11:30", name: "Коля Н.",  theme: "Дорҕоон-буукуба анаалыһа",   color: "border-l-orange-400 bg-orange-50" },
 ];
 
 const REPORTS = [
-  { month: "Март 2026",    students: 8, sessions: 24, progress: 87, trend: "+12%", color: "bg-gradient-to-br from-purple-400 to-pink-400" },
-  { month: "Февраль 2026", students: 8, sessions: 22, progress: 75, trend: "+8%",  color: "bg-gradient-to-br from-blue-400 to-purple-400" },
-  { month: "Январь 2026",  students: 7, sessions: 20, progress: 67, trend: "+5%",  color: "bg-gradient-to-br from-green-400 to-teal-400" },
+  { month: "Кулун тутар 2026",  students: 8, sessions: 24, progress: 87, trend: "+12%", color: "bg-gradient-to-br from-purple-400 to-pink-400" },
+  { month: "Олунньу 2026",      students: 8, sessions: 22, progress: 75, trend: "+8%",  color: "bg-gradient-to-br from-blue-400 to-purple-400" },
+  { month: "Тохсунньу 2026",    students: 7, sessions: 20, progress: 67, trend: "+5%",  color: "bg-gradient-to-br from-green-400 to-teal-400" },
 ];
 
 const GALLERY_ITEMS = [
-  { title: "Артикуляционная гимнастика", date: "20 марта", emoji: "🤸", color: "bg-gradient-to-br from-pink-200 to-orange-200" },
-  { title: "Игра с кубиками-буквами",    date: "18 марта", emoji: "🔤", color: "bg-gradient-to-br from-yellow-200 to-green-200" },
-  { title: "Дыхательная гимнастика",     date: "15 марта", emoji: "🌬️", color: "bg-gradient-to-br from-blue-200 to-purple-200" },
-  { title: "Занятие со звуком [Р]",      date: "12 марта", emoji: "🦁", color: "bg-gradient-to-br from-orange-200 to-red-200" },
-  { title: "Логопедический массаж",      date: "10 марта", emoji: "🖐️", color: "bg-gradient-to-br from-green-200 to-teal-200" },
-  { title: "Театр на пальчиках",         date: "7 марта",  emoji: "🎭", color: "bg-gradient-to-br from-purple-200 to-pink-200" },
+  { title: "Артикуляция гимнастиката",   date: "Кулун тутар 20", emoji: "🤸", color: "bg-gradient-to-br from-pink-200 to-orange-200" },
+  { title: "Буукуба кубиктарынан оонньуу", date: "Кулун тутар 18", emoji: "🔤", color: "bg-gradient-to-br from-yellow-200 to-green-200" },
+  { title: "Тыын гимнастиката",          date: "Кулун тутар 15", emoji: "🌬️", color: "bg-gradient-to-br from-blue-200 to-purple-200" },
+  { title: "[Р] дорҕоонноох занятие",    date: "Кулун тутар 12", emoji: "🦁", color: "bg-gradient-to-br from-orange-200 to-red-200" },
+  { title: "Логопед массажа",            date: "Кулун тутар 10", emoji: "🖐️", color: "bg-gradient-to-br from-green-200 to-teal-200" },
+  { title: "Тарбах театра",              date: "Кулун тутар 7",  emoji: "🎭", color: "bg-gradient-to-br from-purple-200 to-pink-200" },
 ];
 
 const WEEK_SCHEDULE = [
@@ -275,7 +275,7 @@ export default function Index() {
             <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-400 to-purple-500 flex items-center justify-center text-2xl shadow-lg">🦋</div>
             <div>
               <div className="font-caveat text-2xl font-bold text-purple-700 leading-tight">Анастасия Романовна</div>
-              <div className="text-xs text-pink-500 font-semibold tracking-wide uppercase">Дневник логопеда</div>
+              <div className="text-xs text-pink-500 font-semibold tracking-wide uppercase">Логопед дневнига</div>
             </div>
           </div>
           <nav className="hidden xl:flex items-center gap-1">
@@ -337,10 +337,10 @@ export default function Index() {
                 />
               </div>
             </div>
-            <p className="text-center text-sm text-gray-500 font-semibold">Наведи камеру телефона на QR-код, чтобы открыть видео</p>
+            <p className="text-center text-sm text-gray-500 font-semibold">Видеону аһар телефон камератын QR-кодка туруор</p>
             <div className="mt-3 flex items-center justify-center gap-2 text-xs text-gray-400">
               <Icon name="Clock" size={12} />
-              <span>Длительность: {VIDEO_LESSONS[qrOpen].duration}</span>
+              <span>Кэм: {VIDEO_LESSONS[qrOpen].duration}</span>
             </div>
             {VIDEO_LESSONS[qrOpen].url && (
               <a
@@ -350,7 +350,7 @@ export default function Index() {
                 className={`mt-4 w-full py-3 rounded-2xl bg-gradient-to-r ${VIDEO_LESSONS[qrOpen].color} text-white font-bold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-md`}
               >
                 <Icon name="Play" size={16} />
-                Открыть на Рутубе
+                Рутубеҕа аһыы
               </a>
             )}
           </div>
@@ -367,11 +367,11 @@ export default function Index() {
               <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 80%, white 1px, transparent 1px), radial-gradient(circle at 80% 20%, white 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
               <div className="relative flex flex-col md:flex-row items-center gap-6 p-8">
                 <div className="flex-1 text-white">
-                  <div className="inline-block bg-white/20 rounded-full px-4 py-1 text-sm font-bold mb-4 backdrop-blur-sm">🌟 Дошкольное образование</div>
-                  <h1 className="font-caveat text-4xl md:text-5xl font-bold mb-3 leading-tight">Дневник<br/>логопеда</h1>
-                  <p className="text-white/90 text-lg font-semibold mb-6">Упражнения, игры и задания<br/>для маленьких говорунов! 🗣️</p>
+                  <div className="inline-block bg-white/20 rounded-full px-4 py-1 text-sm font-bold mb-4 backdrop-blur-sm">🌟 Оскуолаҕа дылы үөрэтии</div>
+                  <h1 className="font-caveat text-4xl md:text-5xl font-bold mb-3 leading-tight">Логопед<br/>дневнига</h1>
+                  <p className="text-white/90 text-lg font-semibold mb-6">Упражнениелэр, оонньуулар<br/>уонна дааннылар! 🗣️</p>
                   <div className="flex flex-wrap gap-3">
-                    {[{ label: "8 детей", icon: "👶" }, { label: "24 занятия", icon: "📚" }, { label: "87% прогресс", icon: "🚀" }].map((stat) => (
+                    {[{ label: "8 оҕо", icon: "👶" }, { label: "24 занятие", icon: "📚" }, { label: "87% прогресс", icon: "🚀" }].map((stat) => (
                       <div key={stat.label} className="bg-white/20 backdrop-blur-sm rounded-2xl px-4 py-2 font-bold text-sm">{stat.icon} {stat.label}</div>
                     ))}
                   </div>
@@ -383,7 +383,7 @@ export default function Index() {
             </div>
 
             {/* Directions */}
-            <h2 className="font-caveat text-3xl font-bold text-purple-700 mb-4">Направления работы 🎯</h2>
+            <h2 className="font-caveat text-3xl font-bold text-purple-700 mb-4">Үлэ хайысхалара 🎯</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 mb-8">
               {DIRECTIONS.map((d, i) => (
                 <button
@@ -399,7 +399,7 @@ export default function Index() {
               ))}
             </div>
 
-            <h2 className="font-caveat text-3xl font-bold text-purple-700 mb-4">Быстрый доступ ✨</h2>
+            <h2 className="font-caveat text-3xl font-bold text-purple-700 mb-4">Хойутунан киирии ✨</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
               {NAV_ITEMS.filter(n => n.id !== "home").map((item, i) => (
                 <button
@@ -415,7 +415,7 @@ export default function Index() {
             </div>
 
             <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 border-2 border-yellow-200 shadow-lg">
-              <h3 className="font-caveat text-2xl font-bold text-yellow-700 mb-4">📅 Сегодня, 25 марта</h3>
+              <h3 className="font-caveat text-2xl font-bold text-yellow-700 mb-4">📅 Бүгүн, Кулун тутар 25</h3>
               <div className="grid md:grid-cols-2 gap-3">
                 {SCHEDULE.slice(0, 4).map((item, i) => (
                   <div key={i} className={`flex items-center gap-3 p-3 rounded-2xl border-l-4 ${item.color}`}>
@@ -434,7 +434,7 @@ export default function Index() {
         {/* EXERCISES */}
         {active === "exercises" && (
           <div className="animate-fade-in">
-            <SectionHeader emoji="👄" title="Упражнения" subtitle="Выбери направление и занимайся!" color="text-orange-600" />
+            <SectionHeader emoji="👄" title="Упражнениелэр" subtitle="Хайысханы талан үлэлээ!" color="text-orange-600" />
             <DirectionTabs active={exDir} onChange={setExDir} />
             <div className={`flex items-center gap-3 mb-5 px-4 py-3 rounded-2xl border-2 ${currentDir.bg} ${currentDir.border}`}>
               <span className="text-3xl">{currentDir.emoji}</span>
@@ -460,7 +460,7 @@ export default function Index() {
                   </div>
                   <p className="text-gray-600 text-sm leading-relaxed">{ex.desc}</p>
                   <button className={`mt-4 w-full py-2 rounded-2xl ${currentDir.bg.replace("100","400").replace("bg-","bg-")} ${currentDir.color.replace("700","900")} font-bold text-sm transition-opacity hover:opacity-80 shadow-sm border ${currentDir.border}`}>
-                    Начать упражнение →
+                    Упражнениени саҕалаа →
                   </button>
                 </div>
               ))}
@@ -471,7 +471,7 @@ export default function Index() {
         {/* GAMES */}
         {active === "games" && (
           <div className="animate-fade-in">
-            <SectionHeader emoji="🎮" title="Логопедические игры" subtitle="Играем и учимся говорить правильно!" color="text-yellow-600" />
+            <SectionHeader emoji="🎮" title="Логопед оонньуулара" subtitle="Оонньуубут уонна сөпкө саҥарарга үөрэнэбит!" color="text-yellow-600" />
             <DirectionTabs active={gameDir} onChange={setGameDir} />
             <div className={`flex items-center gap-3 mb-5 px-4 py-3 rounded-2xl border-2 ${currentGameDir.bg} ${currentGameDir.border}`}>
               <span className="text-3xl">{currentGameDir.emoji}</span>
@@ -497,7 +497,7 @@ export default function Index() {
                     </div>
                     <p className="text-sm text-gray-500 mb-4">{game.desc}</p>
                     <button className="w-full py-2 rounded-2xl bg-gradient-to-r from-yellow-400 to-orange-400 text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-sm">
-                      Играть! 🎉
+                      Оонньуу! 🎉
                     </button>
                   </div>
                 </div>
@@ -509,12 +509,12 @@ export default function Index() {
         {/* VIDEOS */}
         {active === "videos" && (
           <div className="animate-fade-in">
-            <SectionHeader emoji="📹" title="Видеозанятия" subtitle="Сканируй QR-код и смотри занятие на телефоне!" color="text-red-600" />
+            <SectionHeader emoji="📹" title="Видео занятиелэр" subtitle="QR-коду сканниир уонна телефоҥҥа занятиени кэрдиис!" color="text-red-600" />
             <div className="bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200 rounded-3xl p-5 mb-6 flex items-start gap-4">
               <div className="text-3xl">📱</div>
               <div>
-                <div className="font-bold text-red-700 mb-1">Как использовать QR-коды?</div>
-                <div className="text-sm text-gray-600">Откройте камеру телефона, наведите на QR-код — видео откроется автоматически. Можно смотреть дома с ребёнком или распечатать карточку.</div>
+                <div className="font-bold text-red-700 mb-1">QR-коду хайдах туһанабытый?</div>
+                <div className="text-sm text-gray-600">Телефон камератын аһан QR-кодка тут — видео бэйэтинэн аһыллыа. Оҕонон дьиэгэ кэрдиис эбэтэр карточканы бастакыта таһаар.</div>
               </div>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -553,11 +553,11 @@ export default function Index() {
                           <img src={video.qr} alt="QR" className="w-14 h-14 rounded-xl block" />
                         </div>
                         <div>
-                          <div className="font-bold text-gray-700 text-sm">QR-код урока</div>
-                          <div className="text-xs text-gray-400">Нажми для увеличения</div>
+                          <div className="font-bold text-gray-700 text-sm">Урок QR-кода</div>
+                          <div className="text-xs text-gray-400">Улаатыннарарга баттаа</div>
                           <div className="flex items-center gap-1 text-xs text-blue-500 font-semibold mt-1 group-hover/qr:underline">
                             <Icon name="ZoomIn" size={12} />
-                            Открыть
+                            Аһыы
                           </div>
                         </div>
                       </div>
@@ -578,7 +578,7 @@ export default function Index() {
                             className="flex-1 py-2.5 rounded-2xl bg-white border-2 border-gray-200 text-gray-700 font-bold text-sm hover:border-gray-300 hover:shadow-sm transition-all flex items-center justify-center gap-2"
                           >
                             <Icon name="Play" size={16} />
-                            Смотреть
+                            Кэрдиис
                           </a>
                         )}
                       </div>
@@ -593,13 +593,13 @@ export default function Index() {
         {/* TASKS */}
         {active === "tasks" && (
           <div className="animate-fade-in">
-            <SectionHeader emoji="📝" title="Домашние задания" subtitle="Задания для самостоятельной работы дома" color="text-green-600" />
+            <SectionHeader emoji="📝" title="Дьиэ дааннылара" subtitle="Дьиэгэ бэйэтэ үлэлиир дааннылар" color="text-green-600" />
             <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-lg border-2 border-green-100 mb-6">
               <div className="flex items-center justify-between mb-5">
-                <div className="font-bold text-gray-700">Задания на неделю</div>
+                <div className="font-bold text-gray-700">Нэдиэлэҕэ дааннылар</div>
                 <button className="flex items-center gap-2 bg-green-400 text-white px-4 py-2 rounded-2xl text-sm font-bold hover:bg-green-500 transition-colors shadow-sm">
                   <Icon name="Plus" size={16} />
-                  Добавить задание
+                  Дааннаны эп
                 </button>
               </div>
               <div className="space-y-3">
@@ -616,7 +616,7 @@ export default function Index() {
                       <div className="flex items-center gap-2 mb-1">
                         <span className="font-bold text-gray-800">{task.student}</span>
                         <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${task.done ? "bg-green-200 text-green-700" : "bg-yellow-100 text-yellow-700"}`}>
-                          {task.done ? "✅ Выполнено" : "⏳ В работе"}
+                          {task.done ? "✅ Бүппүт" : "⏳ Үлэлэнэр"}
                         </span>
                       </div>
                       <div className="text-sm text-gray-600">{task.task}</div>
@@ -628,9 +628,9 @@ export default function Index() {
             </div>
             <div className="grid grid-cols-3 gap-4">
               {[
-                { label: "Всего заданий", value: TASKS.length,                          color: "bg-blue-100 text-blue-700",   emoji: "📋" },
-                { label: "Выполнено",     value: TASKS.filter(t => t.done).length,      color: "bg-green-100 text-green-700", emoji: "✅" },
-                { label: "В работе",      value: TASKS.filter(t => !t.done).length,     color: "bg-yellow-100 text-yellow-700", emoji: "⏳" },
+                { label: "Барыта дааннылар", value: TASKS.length,                          color: "bg-blue-100 text-blue-700",   emoji: "📋" },
+                { label: "Бүппүт",          value: TASKS.filter(t => t.done).length,      color: "bg-green-100 text-green-700", emoji: "✅" },
+                { label: "Үлэлэнэр",        value: TASKS.filter(t => !t.done).length,     color: "bg-yellow-100 text-yellow-700", emoji: "⏳" },
               ].map((stat, i) => (
                 <div key={i} className={`${stat.color} rounded-2xl p-4 text-center`}>
                   <div className="text-3xl mb-1">{stat.emoji}</div>
@@ -645,9 +645,9 @@ export default function Index() {
         {/* SCHEDULE */}
         {active === "schedule" && (
           <div className="animate-fade-in">
-            <SectionHeader emoji="📅" title="Расписание занятий" subtitle="График работы с дошколятами" color="text-blue-600" />
+            <SectionHeader emoji="📅" title="Занятие расписание" subtitle="Оскуолаҕа дылы оҕолорунан үлэ графига" color="text-blue-600" />
             <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-lg border-2 border-blue-100 mb-6">
-              <h3 className="font-bold text-gray-700 mb-4 text-lg">Неделя 24–28 марта 2026</h3>
+              <h3 className="font-bold text-gray-700 mb-4 text-lg">Нэдиэлэ Кулун тутар 24–28, 2026</h3>
               <div className="grid grid-cols-5 gap-3">
                 {WEEK_SCHEDULE.map((day, di) => (
                   <div key={di} className="text-center">
@@ -661,7 +661,7 @@ export default function Index() {
                 ))}
               </div>
             </div>
-            <h3 className="font-caveat text-2xl font-bold text-blue-700 mb-4">Сегодня подробно 🕐</h3>
+            <h3 className="font-caveat text-2xl font-bold text-blue-700 mb-4">Бүгүн дробнайдык 🕐</h3>
             <div className="space-y-3">
               {SCHEDULE.map((item, i) => (
                 <div key={i} className={`flex items-center gap-4 p-4 rounded-2xl border-l-4 shadow-sm hover:shadow-md transition-all animate-fade-in ${item.color}`} style={{ animationDelay: `${i * 0.06}s` }}>
@@ -673,7 +673,7 @@ export default function Index() {
                     <div className="font-bold text-gray-800">{item.name}</div>
                     <div className="text-sm text-gray-500">{item.theme}</div>
                   </div>
-                  <button className="text-xs bg-white rounded-xl px-3 py-1.5 font-bold text-gray-600 hover:shadow-md transition-shadow">Подробнее</button>
+                  <button className="text-xs bg-white rounded-xl px-3 py-1.5 font-bold text-gray-600 hover:shadow-md transition-shadow">Ордук</button>
                 </div>
               ))}
             </div>
@@ -683,18 +683,18 @@ export default function Index() {
         {/* REPORTS */}
         {active === "reports" && (
           <div className="animate-fade-in">
-            <SectionHeader emoji="📊" title="Отчёты и прогресс" subtitle="Результаты работы с каждым ребёнком" color="text-purple-600" />
+            <SectionHeader emoji="📊" title="Отчуоттар уонна прогресс" subtitle="Хас биирдии оҕонон үлэ түмүктэрэ" color="text-purple-600" />
             <div className="grid md:grid-cols-3 gap-5 mb-8">
               {REPORTS.map((rep, i) => (
                 <div key={i} className={`${rep.color} rounded-3xl p-6 text-white shadow-xl animate-bounce-in`} style={{ animationDelay: `${i * 0.1}s` }}>
                   <div className="text-lg font-bold mb-4 opacity-90">{rep.month}</div>
                   <div className="grid grid-cols-2 gap-3 mb-4">
-                    <div className="bg-white/20 rounded-2xl p-3 text-center"><div className="text-2xl font-bold">{rep.students}</div><div className="text-xs opacity-80">детей</div></div>
-                    <div className="bg-white/20 rounded-2xl p-3 text-center"><div className="text-2xl font-bold">{rep.sessions}</div><div className="text-xs opacity-80">занятий</div></div>
+                    <div className="bg-white/20 rounded-2xl p-3 text-center"><div className="text-2xl font-bold">{rep.students}</div><div className="text-xs opacity-80">оҕо</div></div>
+                    <div className="bg-white/20 rounded-2xl p-3 text-center"><div className="text-2xl font-bold">{rep.sessions}</div><div className="text-xs opacity-80">занятие</div></div>
                   </div>
                   <div className="bg-white/20 rounded-2xl p-3">
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-semibold">Прогресс</span>
+                      <span className="text-sm font-semibold">Прогресс</span>  
                       <span className="text-sm font-bold">{rep.progress}% {rep.trend}</span>
                     </div>
                     <div className="bg-white/20 rounded-full h-2.5">
@@ -705,7 +705,7 @@ export default function Index() {
               ))}
             </div>
             <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-lg border-2 border-purple-100">
-              <h3 className="font-bold text-gray-700 text-lg mb-5">Прогресс по детям</h3>
+              <h3 className="font-bold text-gray-700 text-lg mb-5">Оҕолорго прогресс</h3>
               <div className="space-y-4">
                 {[
                   { name: "Маша К.",  emoji: "👧", progress: 92, sound: "[Р]", color: "bg-pink-400" },
@@ -736,10 +736,10 @@ export default function Index() {
         {/* GALLERY */}
         {active === "gallery" && (
           <div className="animate-fade-in">
-            <SectionHeader emoji="🖼️" title="Фотогалерея" subtitle="Наши занятия в фотографиях" color="text-rose-600" />
+            <SectionHeader emoji="🖼️" title="Фотогалерея" subtitle="Занятиелэрбит фотолардааҕы" color="text-rose-600" />
             <div className="flex gap-3 mb-6 flex-wrap">
-              {["Все", "Март 2026", "Февраль 2026", "Январь 2026"].map((filter) => (
-                <button key={filter} className={`px-4 py-2 rounded-2xl text-sm font-bold transition-all ${filter === "Все" ? "bg-rose-400 text-white shadow-md" : "bg-white/70 text-gray-600 hover:bg-rose-100 hover:text-rose-600"}`}>{filter}</button>
+              {["Барыта", "Кулун тутар 2026", "Олунньу 2026", "Тохсунньу 2026"].map((filter) => (
+                <button key={filter} className={`px-4 py-2 rounded-2xl text-sm font-bold transition-all ${filter === "Барыта" ? "bg-rose-400 text-white shadow-md" : "bg-white/70 text-gray-600 hover:bg-rose-100 hover:text-rose-600"}`}>{filter}</button>
               ))}
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
@@ -762,7 +762,7 @@ export default function Index() {
             </div>
             <button className="w-full py-4 rounded-3xl text-rose-500 font-bold text-sm hover:bg-rose-50 transition-colors flex items-center justify-center gap-2" style={{ border: "3px dashed #fda4af" }}>
               <Icon name="Upload" size={18} />
-              Загрузить фото или видео
+              Фото эбэтэр видеону тиэй
             </button>
           </div>
         )}
