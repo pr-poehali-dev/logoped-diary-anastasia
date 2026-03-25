@@ -399,7 +399,7 @@ export default function Index() {
               ))}
             </div>
 
-            <h2 className="font-caveat text-3xl font-bold text-purple-700 mb-4">Хойутунан киирии ✨</h2>
+            <h2 className="font-caveat text-3xl font-bold text-purple-700 mb-4">Быстрый доступ ✨</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
               {NAV_ITEMS.filter(n => n.id !== "home").map((item, i) => (
                 <button
