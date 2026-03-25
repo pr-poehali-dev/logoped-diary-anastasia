@@ -85,7 +85,9 @@ const GAMES_BY_DIR: Record<Direction, { title: string; desc: string; emoji: stri
   ],
 };
 
-const VIDEO_LESSONS = [
+type VideoLesson = { title: string; subtitle: string; dir: Direction; duration: string; emoji: string; qr: string; url?: string; color: string; cardBg: string };
+
+const VIDEO_LESSONS: VideoLesson[] = [
   {
     title: "Артикуляционная гимнастика",
     subtitle: "5 базовых упражнений для малышей",
@@ -102,7 +104,8 @@ const VIDEO_LESSONS = [
     dir: "speech" as Direction,
     duration: "12 мин",
     emoji: "🗣️",
-    qr: "https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://youtube.com/watch?v=speech_launch&color=ec4899&bgcolor=fdf2f8",
+    qr: "https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://rutube.ru/video/private/94ea3a79ac07baefd225dcfea2d4109c/?p=5Dwm0s09OSSy8dy4ONudnQ&color=ec4899&bgcolor=fdf2f8",
+    url: "https://rutube.ru/video/private/94ea3a79ac07baefd225dcfea2d4109c/?p=5Dwm0s09OSSy8dy4ONudnQ",
     color: "from-pink-400 to-rose-400",
     cardBg: "bg-pink-50 border-pink-200",
   },
@@ -338,6 +341,17 @@ export default function Index() {
               <Icon name="Clock" size={12} />
               <span>Длительность: {VIDEO_LESSONS[qrOpen].duration}</span>
             </div>
+            {VIDEO_LESSONS[qrOpen].url && (
+              <a
+                href={VIDEO_LESSONS[qrOpen].url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`mt-4 w-full py-3 rounded-2xl bg-gradient-to-r ${VIDEO_LESSONS[qrOpen].color} text-white font-bold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-md`}
+              >
+                <Icon name="Play" size={16} />
+                Открыть на Рутубе
+              </a>
+            )}
           </div>
         </div>
       )}
@@ -547,13 +561,26 @@ export default function Index() {
                         </div>
                       </div>
 
-                      <button
-                        onClick={() => setQrOpen(i)}
-                        className={`mt-4 w-full py-2.5 rounded-2xl bg-gradient-to-r ${video.color} text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-sm flex items-center justify-center gap-2`}
-                      >
-                        <Icon name="QrCode" size={16} />
-                        Показать QR-код
-                      </button>
+                      <div className="mt-4 flex gap-2">
+                        <button
+                          onClick={() => setQrOpen(i)}
+                          className={`flex-1 py-2.5 rounded-2xl bg-gradient-to-r ${video.color} text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-sm flex items-center justify-center gap-2`}
+                        >
+                          <Icon name="QrCode" size={16} />
+                          QR-код
+                        </button>
+                        {video.url && (
+                          <a
+                            href={video.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 py-2.5 rounded-2xl bg-white border-2 border-gray-200 text-gray-700 font-bold text-sm hover:border-gray-300 hover:shadow-sm transition-all flex items-center justify-center gap-2"
+                          >
+                            <Icon name="Play" size={16} />
+                            Смотреть
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
                 );
