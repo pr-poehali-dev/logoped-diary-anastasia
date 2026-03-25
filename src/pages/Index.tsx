@@ -700,11 +700,17 @@ export default function Index() {
               <h3 className="font-bold text-gray-700 text-lg mb-5">Оҕолорго прогресс</h3>
               <div className="space-y-4">
                 {[
-                  { name: "Маша К.",  emoji: "👧", progress: 92, sound: "[Р]", color: "bg-pink-400" },
-                  { name: "Вася П.",  emoji: "👦", progress: 78, sound: "[Ш]", color: "bg-blue-400" },
-                  { name: "Аня С.",   emoji: "👧", progress: 85, sound: "[Л]", color: "bg-green-400" },
-                  { name: "Дима В.",  emoji: "👦", progress: 65, sound: "[Ц]", color: "bg-yellow-400" },
-                  { name: "Оля Т.",   emoji: "👧", progress: 70, sound: "[З]", color: "bg-purple-400" },
+                  { name: "Аурика П.",     emoji: "👧", progress: 88, sound: "[Р]", color: "bg-pink-400" },
+                  { name: "Настя Т.",      emoji: "👧", progress: 75, sound: "[Ш]", color: "bg-blue-400" },
+                  { name: "Никита Т.",     emoji: "👦", progress: 82, sound: "[Л]", color: "bg-green-400" },
+                  { name: "Дьулуур З.",    emoji: "👦", progress: 68, sound: "[С]", color: "bg-yellow-400" },
+                  { name: "Элина П.",      emoji: "👧", progress: 91, sound: "[Ц]", color: "bg-purple-400" },
+                  { name: "Кира Д.",       emoji: "👧", progress: 73, sound: "[З]", color: "bg-rose-400" },
+                  { name: "Ариан П.",      emoji: "👦", progress: 60, sound: "[Ж]", color: "bg-orange-400" },
+                  { name: "Алгыстаана А.", emoji: "👧", progress: 85, sound: "[Р]", color: "bg-teal-400" },
+                  { name: "Кэскил Л.",     emoji: "👧", progress: 79, sound: "[Л]", color: "bg-cyan-400" },
+                  { name: "Василиса Р.",   emoji: "👧", progress: 94, sound: "[Ш]", color: "bg-indigo-400" },
+                  { name: "Витя А.",       emoji: "👦", progress: 66, sound: "[С]", color: "bg-lime-400" },
                 ].map((s, i) => (
                   <div key={i} className="flex items-center gap-4 animate-fade-in" style={{ animationDelay: `${i * 0.06}s` }}>
                     <span className="text-2xl">{s.emoji}</span>
