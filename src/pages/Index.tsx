@@ -15,14 +15,16 @@ const DIRECTIONS: { id: Direction; label: string; emoji: string; color: string; 
 ];
 
 
-const EXERCISES_BY_DIR: Record<Direction, { title: string; desc: string; emoji: string; level: string; img?: string }[]> = {
+type Exercise = { title: string; desc: string; emoji: string; level: string; img?: string; steps?: string[] };
+
+const EXERCISES_BY_DIR: Record<Direction, Exercise[]> = {
   articulation: [
-    { title: "Лошадка",  desc: "Щёлканье языком — укрепляем подъязычную связку", emoji: "🐴", level: "Лёгкий",  img: "https://cdn.pixabay.com/photo/2017/01/31/14/42/horse-2024718_640.png" },
-    { title: "Грибок",   desc: "Присасываем язык к нёбу и держим 5 сек.",        emoji: "🍄", level: "Средний", img: "https://cdn.pixabay.com/photo/2017/09/08/18/20/mushroom-2729812_640.png" },
-    { title: "Варенье",  desc: "Облизываем верхнюю губу языком медленно",         emoji: "🍓", level: "Лёгкий",  img: "https://cdn.pixabay.com/photo/2016/11/29/13/39/jam-1869750_640.jpg" },
-    { title: "Качели",   desc: "Поочерёдно поднимаем и опускаем язык",            emoji: "🎡", level: "Средний", img: "https://cdn.pixabay.com/photo/2014/11/05/15/57/children-517540_640.jpg" },
-    { title: "Часики",   desc: "Двигаем языком влево-вправо как маятник",          emoji: "⏰", level: "Лёгкий",  img: "https://cdn.pixabay.com/photo/2016/06/17/06/04/clock-1461689_640.jpg" },
-    { title: "Парус",    desc: "Напрягаем язык и поднимаем к нёбу",               emoji: "⛵", level: "Сложный", img: "https://cdn.pixabay.com/photo/2016/04/01/09/51/sail-1299248_640.jpg" },
+    { title: "Лошадка",  desc: "Щёлканье языком — укрепляем подъязычную связку", emoji: "🐴", level: "Лёгкий",  img: "https://cdn.poehali.dev/projects/bac66344-3379-445c-9eff-5943591085b9/files/e2528d40-3706-4f52-bd85-a250d04fce40.jpg", steps: ["Улыбнись и открой рот пошире", "Прижми язык к нёбу", "Щёлкни языком вниз — звук как цокот копыт", "Повтори 10 раз не торопясь", "Ускоряй темп постепенно"] },
+    { title: "Грибок",   desc: "Присасываем язык к нёбу и держим 5 сек.",        emoji: "🍄", level: "Средний", img: "https://cdn.poehali.dev/projects/bac66344-3379-445c-9eff-5943591085b9/files/c8dc6d33-1a13-4a47-9b4a-52bc11487b17.jpg", steps: ["Улыбнись, открой рот", "Прижми язык плашмя к нёбу — как шляпка гриба", "Удерживай 5 секунд, не двигай языком", "Опусти язык и отдохни 3 сек.", "Повтори 5–7 раз"] },
+    { title: "Варенье",  desc: "Облизываем верхнюю губу языком медленно",         emoji: "🍓", level: "Лёгкий",  img: "https://cdn.poehali.dev/projects/bac66344-3379-445c-9eff-5943591085b9/files/e10ae36e-8128-4f38-b4e9-ea7c8c7c0dde.jpg", steps: ["Слегка приоткрой рот", "Высуни широкий язык", "Медленно облизни верхнюю губу сверху вниз", "Убери язык — не помогай губой!", "Повтори 8–10 раз"] },
+    { title: "Качели",   desc: "Поочерёдно поднимаем и опускаем язык",            emoji: "🎡", level: "Средний", img: "https://cdn.poehali.dev/projects/bac66344-3379-445c-9eff-5943591085b9/files/0c5c20cf-3b5d-4ca5-a050-5725a20eb6f0.jpg", steps: ["Открой рот широко", "Подними кончик языка к верхним зубам — раз", "Опусти к нижним зубам — два", "Делай медленно: вверх-вниз, вверх-вниз", "Повтори 10–15 раз"] },
+    { title: "Часики",   desc: "Двигаем языком влево-вправо как маятник",          emoji: "⏰", level: "Лёгкий",  img: "https://cdn.poehali.dev/projects/bac66344-3379-445c-9eff-5943591085b9/files/db073227-ae72-4287-a093-f7f1bdea02c7.jpg", steps: ["Улыбнись, рот чуть приоткрыт", "Высуни острый кончик языка", "Тяни язык в левый уголок рта", "Тяни язык в правый уголок рта", "Чередуй плавно — как маятник, 15–20 раз"] },
+    { title: "Парус",    desc: "Напрягаем язык и поднимаем к нёбу",               emoji: "⛵", level: "Сложный", img: "https://cdn.poehali.dev/projects/bac66344-3379-445c-9eff-5943591085b9/files/dc3c95a0-ef4e-46ed-b593-f2c37efc8045.jpg", steps: ["Открой рот широко", "Подними кончик языка к альвеолам (бугоркам за верхними зубами)", "Напряги язык — он должен быть твёрдым как парус", "Удерживай 5–7 секунд", "Опусти и повтори 5 раз"] },
   ],
   speech: [
     { title: "Голоса животных", desc: "Повторяем голоса животных: мяу, гав, му, ко-ко", emoji: "🐱", level: "Лёгкий" },
@@ -314,6 +316,8 @@ export default function Index() {
   const [exDir, setExDir] = useState<Direction>("articulation");
   const [gameDir, setGameDir] = useState<Direction>("articulation");
   const [qrOpen, setQrOpen] = useState<number | null>(null);
+  const [exOpen, setExOpen] = useState<Exercise | null>(null);
+  const [exStep, setExStep] = useState(0);
 
   const currentDir = DIRECTIONS.find(d => d.id === exDir)!;
   const currentGameDir = DIRECTIONS.find(d => d.id === gameDir)!;
@@ -374,6 +378,64 @@ export default function Index() {
           </div>
         )}
       </header>
+
+      {/* Exercise Modal */}
+      {exOpen !== null && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ background: "rgba(0,0,0,0.55)", backdropFilter: "blur(6px)" }} onClick={() => setExOpen(null)}>
+          <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full animate-bounce-in overflow-hidden" onClick={e => e.stopPropagation()}>
+            {exOpen.img && (
+              <div className="w-full h-52 overflow-hidden">
+                <img src={exOpen.img} alt={exOpen.title} className="w-full h-full object-cover" />
+              </div>
+            )}
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-1">
+                <div className="flex items-center gap-2">
+                  <span className="text-3xl">{exOpen.emoji}</span>
+                  <h2 className="font-bold text-2xl text-gray-800">{exOpen.title}</h2>
+                </div>
+                <button onClick={() => setExOpen(null)} className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors flex-shrink-0">
+                  <Icon name="X" size={16} className="text-gray-600" />
+                </button>
+              </div>
+              <p className="text-gray-500 text-sm mb-5">{exOpen.desc}</p>
+              {exOpen.steps && exOpen.steps.length > 0 && (
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="font-bold text-gray-700 text-sm">Шаг {exStep + 1} из {exOpen.steps.length}</span>
+                    <div className="flex gap-1">
+                      {exOpen.steps.map((_, idx) => (
+                        <button key={idx} onClick={() => setExStep(idx)} className={`w-2.5 h-2.5 rounded-full transition-colors ${idx === exStep ? "bg-orange-400" : "bg-gray-200"}`} />
+                      ))}
+                    </div>
+                  </div>
+                  <div className="bg-orange-50 border-2 border-orange-200 rounded-2xl p-4 min-h-[72px] flex items-center mb-5">
+                    <p className="text-gray-800 font-semibold text-base leading-relaxed">{exOpen.steps[exStep]}</p>
+                  </div>
+                  <div className="flex gap-3">
+                    <button
+                      onClick={() => setExStep(s => Math.max(0, s - 1))}
+                      disabled={exStep === 0}
+                      className="flex-1 py-3 rounded-2xl border-2 border-orange-200 font-bold text-orange-600 text-sm hover:bg-orange-50 transition-colors disabled:opacity-30"
+                    >← Назад</button>
+                    {exStep < exOpen.steps.length - 1 ? (
+                      <button
+                        onClick={() => setExStep(s => s + 1)}
+                        className="flex-1 py-3 rounded-2xl bg-orange-400 text-white font-bold text-sm hover:bg-orange-500 transition-colors shadow-md"
+                      >Далее →</button>
+                    ) : (
+                      <button
+                        onClick={() => { setExOpen(null); setExStep(0); }}
+                        className="flex-1 py-3 rounded-2xl bg-green-400 text-white font-bold text-sm hover:bg-green-500 transition-colors shadow-md"
+                      >Готово ✓</button>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* QR Modal */}
       {qrOpen !== null && (
@@ -526,7 +588,10 @@ export default function Index() {
                     }`}>{ex.level}</span>
                   </div>
                   <p className="text-gray-600 text-sm leading-relaxed">{ex.desc}</p>
-                  <button className={`mt-4 w-full py-2 rounded-2xl ${currentDir.bg.replace("100","400").replace("bg-","bg-")} ${currentDir.color.replace("700","900")} font-bold text-sm transition-opacity hover:opacity-80 shadow-sm border ${currentDir.border}`}>
+                  <button
+                    onClick={() => { setExOpen(ex); setExStep(0); }}
+                    className={`mt-4 w-full py-2 rounded-2xl ${currentDir.bg.replace("100","400").replace("bg-","bg-")} ${currentDir.color.replace("700","900")} font-bold text-sm transition-opacity hover:opacity-80 shadow-sm border ${currentDir.border}`}
+                  >
                     Начать упражнение →
                   </button>
                 </div>
